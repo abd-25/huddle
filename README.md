@@ -28,4 +28,3 @@ npm run dev               # http://localhost:5173
 ```
 
 Open http://localhost:5173 and sign up. Create a team, then share its invite code with teammates so they can sign up and join. Start a meeting and share the meeting link; attendees must be signed in to Huddle. Use separate browsers or devices to test calls.
-
