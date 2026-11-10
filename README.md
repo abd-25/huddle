@@ -29,12 +29,3 @@ npm run dev               # http://localhost:5173
 
 Open http://localhost:5173 and sign up. Create a team, then share its invite code with teammates so they can sign up and join. Start a meeting and share the meeting link; attendees must be signed in to Huddle. Use separate browsers or devices to test calls.
 
-## Deploy to Vercel
-
-Import the repository root (`huddle`) as the Vercel project root so Vercel uses the included `vercel.json`. Add these environment variables in the Vercel project settings:
-
-- `MONGO_URI`: a MongoDB Atlas connection string accessible from Vercel
-- `JWT_SECRET`: a random secret at least 32 characters long
-- `CLIENT_URL`: the deployed client origin, for example `https://your-project.vercel.app`
-
-Vercel serves the client build and runs the Express HTTP API as a serverless function. Vercel Functions do not keep a Socket.IO server running between requests, so for real-time chat, collaborative editing, presence, and meetings, deploy the persistent Node server to Render using the included `render.yaml`. Set its `MONGO_URI`, `JWT_SECRET`, and `CLIENT_URL` values in Render, then set `VITE_API_URL` and `VITE_SOCKET_URL` in Vercel to the Render service URL and redeploy. The local `npm run dev` setup continues to run both the API and Socket.IO server together.
