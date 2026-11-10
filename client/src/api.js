@@ -1,6 +1,7 @@
 export async function api(path, { method = 'GET', body } = {}) {
   const token = localStorage.getItem('token');
-  const res = await fetch('/api' + path, {
+  const apiUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+  const res = await fetch(apiUrl + '/api' + path, {
     method,
     headers: {
       ...(body ? { 'Content-Type': 'application/json' } : {}),
